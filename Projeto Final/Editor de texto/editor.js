@@ -1,5 +1,4 @@
 //Selecionar elementos
-const nomeInput = document.getElementById("nomeDocumento");
 const btnVoltar = document.getElementById("btnVoltar");
 const btnSalvar = document.getElementById("btnSalvar");
 const editor = document.getElementById("editorTexto");
@@ -14,7 +13,6 @@ function carregarDocumento() {
     const documento = documentos.find(doc => doc.id === documentoId);
 
     if(documento) {
-        nomeInput.value = documento.nome;
         editor.innerHTML = documento.conteudo;
     }
 }
@@ -27,13 +25,11 @@ function salvarDocumento() {
 
     //Atualizar documento existente
     if(documentoIndex !== -1) {
-        documentos[documentoIndex].nome = nomeInput.value;
         documentos[documentoIndex].conteudo = editor.innerHTML;
     } else {
         //Criar novo documento se não existir 
         documentos.push({
             id: documentoId || Date.now().toString(),
-            nome: nomeInput.value || "Documento sem título",
             conteudo: editor.innerHTML
         });
     }
@@ -44,14 +40,8 @@ function salvarDocumento() {
 
 btnSalvar.addEventListener("click", salvarDocumento);
 btnVoltar.addEventListener("click", () => {
-    window.location.href = "menu.html";
+    window.location.href = "http://127.0.0.1:5500/Menu/menu.html";
 });
-
-function autoSalvar() {
-    salvarDocumento();
-}
-
-setInterval(autoSalvar, 5000);
 
 //Seleção dos elementos da barra de ferramentas
 const btnNegrito = document.getElementById("btnNegrito");
