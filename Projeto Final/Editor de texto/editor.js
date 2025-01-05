@@ -59,7 +59,8 @@ const btnSublinhar = document.getElementById("btnSublinhar");
 const btnItalico = document.getElementById("btnItalico");
 const alinEsquerdo = document.getElementById("alinEsquerdo");
 const alinDireito = document.getElementById("alinDireito");
-const aliCentro = document.getElementById("aliCentro");
+const alinCentro = document.getElementById("alinCentro");
+const alinJustificado = document.getElementById("alinJustificado");
 const fontFamily = document.getElementById("fontFamily");
 const fontSize = document.getElementById("fontSize");
 const colorPicker = document.getElementById("colorPicker");
@@ -71,8 +72,9 @@ btnSublinhar.addEventListener("click", () => document.execCommand("underline"));
 
 //Funções de alinhamento
 alinEsquerdo.addEventListener("click", () => document.execCommand("justifyLeft"));
-aliCentro.addEventListener("click", () => document.execCommand("justifyCenter"));
+alinCentro.addEventListener("click", () => document.execCommand("justifyCenter"));
 alinDireito.addEventListener("click", () => document.execCommand("justifyRight"));
+alinJustificado.addEventListener("click", () => document.execCommand("justifyFull"));
 
 //Alterar fonte
 fontFamily.addEventListener("change", (event) => {
