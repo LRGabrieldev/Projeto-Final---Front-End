@@ -28,7 +28,8 @@ function carregarDocumentos() {
 
         // Adicionar o evento de clique ao item da lista para redirecionar para o editor
         li.addEventListener("click", () => {
-            window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${doc.id}`;
+            //window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${doc.id}`;
+            window.location.href = `http://127.0.0.1:5500/Projeto%20Final/Editor%20de%20texto/editor.html?id=${doc.id}`; 
         });
 
         // Adicionar botão de download para cada documento (somente .html)
@@ -37,6 +38,14 @@ function carregarDocumentos() {
         downloadHtmlButton.addEventListener("click", (event) => {
             event.stopPropagation();
             baixarDocumento(doc, 'html');
+        });
+
+        // Adicionar botão de download para cada documento (.txt)
+        const downloadTxtButton = document.createElement("button");
+        downloadTxtButton.textContent = "Baixar como .txt";
+        downloadTxtButton.addEventListener("click", (event) => {
+            event.stopPropagation();
+            baixarDocumentoTxt(doc, 'txt');
         });
 
         // Adicionar botão de exclusão
@@ -48,6 +57,7 @@ function carregarDocumentos() {
         });
 
         li.appendChild(downloadHtmlButton);
+        li.appendChild(downloadTxtButton);
         li.appendChild(btnExcluir);
 
         listaDocumentos.appendChild(li);
@@ -111,6 +121,19 @@ function baixarDocumento(doc, tipo) {
     }
 }
 
+// Função para baixar o documento em .txt
+function baixarDocumentoTxt(doc, tipo) {
+    if (tipo === 'txt') {
+        // Criar um arquivo .txt 
+        const txtContent = doc.conteudo.replace(/<\/?[^>]+(>|$)/g, "");
+        const blob = new Blob([txtContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `${doc.nome || 'documento'}.txt`;
+        link.click();
+    }
+}
+
 // Criar um novo documento
 btnNovo.addEventListener("click", () => {
     // Solicitar nome do documento
@@ -129,7 +152,8 @@ btnNovo.addEventListener("click", () => {
         localStorage.setItem("documentos", JSON.stringify(documentos));
 
         // Redirecionar para o editor com o ID do novo documento
-        window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${novoId}`;
+        //window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${novoId}`;
+        window.location.href = `http://127.0.0.1:5500/Projeto%20Final/Editor%20de%20texto/editor.html?id=${novoId}`;
     } else {
         alert("Você deve fornecer um nome para o documento.");
     }
