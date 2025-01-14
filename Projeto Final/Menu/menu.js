@@ -1,6 +1,28 @@
-// Seleção dos elementos
+// Seleção dos elementos (incluindo os novos do modal de criação)
 const btnNovo = document.getElementById("btnNovo");
 const listaDocumentos = document.getElementById("listaDocumentos");
+
+// Modais
+const modalEditarNome = document.getElementById("modalEditarNome");
+const modalNovoDocumento = document.getElementById("modalNovoDocumento");
+
+// Inputs dos Modais
+const modalInputEditarNome = document.getElementById("modalInputEditarNome");
+const modalInputNovoNome = document.getElementById("modalInputNovoNome");
+
+// Botões de fechar dos Modais
+const closeEditar = document.getElementById("closeEditar");
+const closeNovo = document.getElementById("closeNovo");
+
+// Botões de Cancelar dos Modais
+const modalCancelarEditar = document.getElementById("modalCancelarEditar");
+const modalCancelarNovo = document.getElementById("modalCancelarNovo");
+
+// Botões de Salvar/Criar dos Modais
+const modalSalvarEditar = document.getElementById("modalSalvarEditar");
+const modalSalvarNovo = document.getElementById("modalSalvarNovo");
+
+let documentoAEditar;
 
 // Carregar documentos do localStorage
 function carregarDocumentos() {
@@ -28,8 +50,8 @@ function carregarDocumentos() {
 
         // Adicionar o evento de clique ao item da lista para redirecionar para o editor
         li.addEventListener("click", () => {
-            //window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${doc.id}`;
-            window.location.href = `http://127.0.0.1:5500/Projeto%20Final/Editor%20de%20texto/editor.html?id=${doc.id}`; 
+            window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${doc.id}`;
+            //window.location.href = `http://127.0.0.1:5500/Projeto%20Final/Editor%20de%20texto/editor.html?id=${doc.id}`; 
         });
 
         // Adicionar botão de download para cada documento (somente .html)
@@ -134,30 +156,75 @@ function baixarDocumentoTxt(doc, tipo) {
     }
 }
 
-// Criar um novo documento
+// Função para editar o nome do documento (modificada - como na resposta anterior)
+function editarNomeDocumento(id, nomeElemento) {
+    documentoAEditar = { id, nomeElemento };
+    modalInputEditarNome.value = nomeElemento.textContent;
+    modalEditarNome.style.display = "block";
+}
+
+// Eventos do modal de Editar
+closeEditar.onclick = function() {
+    modalEditarNome.style.display = "none";
+}
+
+modalCancelarEditar.onclick = function() {
+    modalEditarNome.style.display = "none";
+}
+
+modalSalvarEditar.onclick = function() {
+    const novoNome = modalInputEditarNome.value.trim();
+    if (novoNome !== "") {
+        salvarNomeDocumento(documentoAEditar.id, novoNome);
+        documentoAEditar.nomeElemento.textContent = novoNome;
+        modalEditarNome.style.display = "none";
+    } else {
+        alert("Você deve fornecer um nome válido.");
+    }
+}
+
+// Evento do botão "Criar Novo Documento" (modificado)
 btnNovo.addEventListener("click", () => {
-    // Solicitar nome do documento
-    const nomeDocumento = prompt("Digite o nome do novo documento:");
+    modalNovoDocumento.style.display = "block"; // Abre o modal de novo documento
+});
 
-    if (nomeDocumento && nomeDocumento.trim() !== "") {
+// Eventos do modal de Novo Documento
+closeNovo.onclick = function() {
+    modalNovoDocumento.style.display = "none";
+}
+
+modalCancelarNovo.onclick = function() {
+    modalNovoDocumento.style.display = "none";
+}
+
+modalSalvarNovo.onclick = function() {
+    const nomeDocumento = modalInputNovoNome.value.trim();
+    if (nomeDocumento !== "") {
         const novoId = Date.now().toString();
-
-        // Criar um novo documento no localStorage com o nome fornecido
         const documentos = JSON.parse(localStorage.getItem("documentos")) || [];
         documentos.push({
             id: novoId,
             nome: nomeDocumento,
-            conteudo: "" // Novo documento vazio
+            conteudo: ""
         });
         localStorage.setItem("documentos", JSON.stringify(documentos));
-
-        // Redirecionar para o editor com o ID do novo documento
-        //window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${novoId}`;
-        window.location.href = `http://127.0.0.1:5500/Projeto%20Final/Editor%20de%20texto/editor.html?id=${novoId}`;
+        modalNovoDocumento.style.display = "none";
+        window.location.href = 'http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${novoId}';
+    //window.location.href = 'http://127.0.0.1:5500/Projeto%20Final/Menu/menu.html?id=${novoId}';
     } else {
         alert("Você deve fornecer um nome para o documento.");
     }
-});
+}
+
+// Fechar o modal clicando fora dele (para ambos os modais)
+window.onclick = function(event) {
+    if (event.target == modalEditarNome) {
+        modalEditarNome.style.display = "none";
+    }
+    if (event.target == modalNovoDocumento) {
+        modalNovoDocumento.style.display = "none";
+    }
+}
 
 // Inicializar a lista de documentos ao carregar a página
 carregarDocumentos();

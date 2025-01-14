@@ -1,0 +1,133 @@
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #6a6d6a;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#btnNovo {
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btnNovo:hover {
+    background-color: #1976D2;
+}
+
+/* Lista de documentos */
+main {
+    padding: 20px;
+}
+
+#listaDocumentos {
+    list-style: none;
+    padding: 0;
+}
+
+#listaDocumentos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#listaDocumentos li span {
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+#listaDocumentos li button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#listaDocumentos li button:hover {
+    background-color: #e7e7e7;
+}
+
+#listaDocumentos li button:nth-child(2) {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#listaDocumentos li button:nth-child(3) {
+    background-color: #2196F3;
+    color: white;
+}
+
+#listaDocumentos li button:nth-child(4) {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed; /* Fixado na tela */
+    z-index: 1; /* Sobrepõe outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centraliza verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do conteúdo */
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modalInputNome {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 10px; /* Espaçamento entre os botões */
+}

@@ -1,0 +1,85 @@
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #6a6d6a;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#barra\ de\ ferramentas {
+    display: flex;
+    gap: 10px;
+}
+
+#barra\ de\ ferramentas button, 
+#barra\ de\ ferramentas select, 
+#barra\ de\ ferramentas input[type="color"] {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#barra\ de\ ferramentas button:hover,
+#barra\ de\ ferramentas select:hover,
+#barra\ de\ ferramentas input[type="color"]:hover {
+    background-color: #e7e7e7;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+button#btnVoltar {
+    background-color: #f44336;
+    color: white;
+}
+
+button#btnSalvar {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* Área de edição */
+main {
+    padding: 20px;
+}
+
+#editorTexto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: white;
+    min-height: 300px;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Estilos para a mensagem de sucesso */
+#mensagemSalvo {
+    display: none; /* Inicialmente oculta */
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed; /* Fixa a mensagem na tela */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    border-radius: 5px;
+    z-index: 1000; /* Garante que a mensagem fique acima de outros elementos */
+}

@@ -17,7 +17,8 @@ function carregarDocumento() {
     }
 }
 
-carregarDocumento();
+const mensagemSalvo = document.getElementById("mensagemSalvo");
+
 
 function salvarDocumento() {
     const documentos = JSON.parse(localStorage.getItem("documentos")) || [];
@@ -35,14 +36,22 @@ function salvarDocumento() {
     }
 
     localStorage.setItem("documentos", JSON.stringify(documentos));
+    
+    // Mostrar a mensagem de sucesso
+    mensagemSalvo.style.display = "block";
+
+    // Ocultar a mensagem após 3 segundos (3000 milissegundos)
+    setTimeout(() => {
+        mensagemSalvo.style.display = "none";
+    }, 3000);
+
     console.log("Documento salvo com sucesso");
-    alert("Documento salvo com sucesso");
 }
 
 btnSalvar.addEventListener("click", salvarDocumento);
 btnVoltar.addEventListener("click", () => {
-    //window.location.href = "http://127.0.0.1:5500/Menu/menu.html";
-    window.location.href = "http://127.0.0.1:5500/Projeto%20Final/Menu/menu.html";
+    window.location.href = "http://127.0.0.1:5500/Menu/menu.html";
+    //window.location.href = "http://127.0.0.1:5500/Projeto%20Final/Menu/menu.html";
 });
 //Seleção dos elementos da barra de ferramentas
 const btnNegrito = document.getElementById("btnNegrito");
@@ -81,3 +90,5 @@ fontSize.addEventListener("change", (event) => {
 colorPicker.addEventListener("input", (event) => {
     document.execCommand("foreColor", false, event.target.value);
 });
+
+carregarDocumento();

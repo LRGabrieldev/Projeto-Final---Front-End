@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Menu - Editor de Documentos</title>
     <script defer src="menu.js"></script>
 </head>
@@ -13,8 +14,33 @@
     </header>
     <main>
         <ul id="listaDocumentos">
-            <!-- Documentos carregados dinamicamente -->
         </ul>
     </main>
+
+    <div id="modalEditarNome" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEditar">&times;</span>
+            <h2>Editar Nome do Documento</h2>
+            <input type="text" id="modalInputEditarNome" placeholder="Novo nome">
+            <div class="modal-buttons">
+              <button id="modalCancelarEditar">Cancelar</button>
+              <button id="modalSalvarEditar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalNovoDocumento" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeNovo">&times;</span>
+            <h2>Novo Documento</h2>
+            <input type="text" id="modalInputNovoNome" placeholder="Nome do novo documento">
+            <div class="modal-buttons">
+              <button id="modalCancelarNovo">Cancelar</button>
+              <button id="modalSalvarNovo">Criar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
 </body>
 </html>
