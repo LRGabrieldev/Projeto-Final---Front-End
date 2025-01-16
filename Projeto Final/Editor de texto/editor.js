@@ -50,8 +50,8 @@ function salvarDocumento() {
 
 btnSalvar.addEventListener("click", salvarDocumento);
 btnVoltar.addEventListener("click", () => {
-    window.location.href = "http://127.0.0.1:5500/Menu/menu.html";
-    //window.location.href = "http://127.0.0.1:5500/Projeto%20Final/Menu/menu.html";
+    //window.location.href = "http://127.0.0.1:5500/Menu/menu.html";
+    window.location.href = "http://127.0.0.1:5500/Projeto%20Final/Menu/menu.html";
 });
 //Seleção dos elementos da barra de ferramentas
 const btnNegrito = document.getElementById("btnNegrito");

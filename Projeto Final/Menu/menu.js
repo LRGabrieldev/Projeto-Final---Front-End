@@ -50,8 +50,8 @@ function carregarDocumentos() {
 
         // Adicionar o evento de clique ao item da lista para redirecionar para o editor
         li.addEventListener("click", () => {
-            window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${doc.id}`;
-            //window.location.href = `http://127.0.0.1:5500/Projeto%20Final/Editor%20de%20texto/editor.html?id=${doc.id}`; 
+            //window.location.href = `http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${doc.id}`;
+            window.location.href = `http://127.0.0.1:5500/Projeto%20Final/Editor%20de%20texto/editor.html?id=${doc.id}`; 
         });
 
         // Adicionar botão de download para cada documento (somente .html)
@@ -209,8 +209,8 @@ modalSalvarNovo.onclick = function() {
         });
         localStorage.setItem("documentos", JSON.stringify(documentos));
         modalNovoDocumento.style.display = "none";
-        window.location.href = 'http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${novoId}';
-    //window.location.href = 'http://127.0.0.1:5500/Projeto%20Final/Menu/menu.html?id=${novoId}';
+        //window.location.href = 'http://127.0.0.1:5500/Editor%20de%20texto/editor.html?id=${novoId}';
+    window.location.href = 'http://127.0.0.1:5500/Projeto%20Final/Menu/menu.html?id=${novoId}';
     } else {
         alert("Você deve fornecer um nome para o documento.");
     }
