@@ -1,4 +1,4 @@
-/* Geral */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +6,6 @@ body {
     background-color: #f9f9f9;
 }
 
-/* Cabeçalho */
 header {
     background-color: #6a6d6a;
     color: white;
@@ -33,7 +32,6 @@ header h1 {
     background-color: #1976D2;
 }
 
-/* Lista de documentos */
 main {
     padding: 20px;
 }
@@ -87,25 +85,24 @@ main {
     color: white;
 }
 
-/* Estilos para o modal */
 .modal {
-    display: none; /* Inicialmente oculto */
-    position: fixed; /* Fixado na tela */
-    z-index: 1; /* Sobrepõe outros elementos */
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
-    overflow: auto; /* Habilita rolagem se necessário */
-    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* Centraliza verticalmente */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Largura do conteúdo */
+    width: 80%; 
     max-width: 500px;
     border-radius: 5px;
 }
@@ -128,6 +125,6 @@ main {
 
 .modal-buttons {
   display: flex;
-  justify-content: flex-end; /* Alinha os botões à direita */
-  gap: 10px; /* Espaçamento entre os botões */
+  justify-content: flex-end; 
+  gap: 10px; 
 }
