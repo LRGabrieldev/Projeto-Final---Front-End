@@ -83,3 +83,25 @@ main {
     border-radius: 5px;
     z-index: 1000; /* Garante que a mensagem fique acima de outros elementos */
 }
+
+/* Responsividade no menu de formatação */
+@media (max-width: 600px) {
+    #barra\ de\ ferramentas {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    header {
+        align-items: center;
+    }
+
+    #editorTexto {
+        min-height: 300px;
+    }
+
+    main {
+        padding: 5px;
+    }
+}
+
